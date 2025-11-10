@@ -1,0 +1,15 @@
+.github/
+bin/
+demo/
+distorm/
+rawpdb/
+src/
+stb/
+travis/
+_clang-format
+.gitmodules
+.hgignore
+.travis.yml
+microprofile-dev.sublime-project
+todo.jonasm
+vs-chromium-project.txt

@@ -1,0 +1,15 @@
+{
+  "name": "microprofile.cxx",
+  "version": "4.2025.11",
+  "description": "microprofile is an embeddable profiler; Jonas Meyer (2013).",
+  "keywords": ["c", "library", "profiler", "microprofile"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodef/microprofile.cxx.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nodef/microprofile.cxx/issues"
+  },
+  "homepage": "https://github.com/nodef/microprofile.cxx#readme"
+}

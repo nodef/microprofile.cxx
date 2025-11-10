@@ -3,16 +3,40 @@
 
 # microprofile
 
-Microprofile is a embeddable profiler in a few files, written in C++
+Microprofile is a embeddable profiler in a few files, written in C++ - by [Jonas Meyer](https://github.com/jonasmr).
 
 
 Microprofile is hosted on
 
 * github: https://github.com/jonasmr/microprofile.git
 
+# Installation
+
+Run:
+```bash
+$ npm i microprofile.cxx
+```
+
+And then include `microprofile.h` as follows:
+```cxx
+#include "node_modules/microprofile.cxx/microprofile.h"
+#include "node_modules/microprofile.cxx/microprofile_html.h"
+#include "node_modules/microprofile.cxx/microprofile_icons.h"
+```
+
+You may also want to include `microprofile.cpp` as follows:
+```cxx
+#ifndef __MICROPROFILE_CXX__
+#define __MICROPROFILE_CXX__
+#include "node_modules/microprofile.cxx/microprofile.cpp"
+#endif
+```
+
+This will include both the function declaration and their definitions into a single file.
+
 # Integration
 
-```
+```cxx
 #include "microprofile.h"
 {
 	MICROPROFILE_SCOPEI("group","timername", MP_YELLOW);
@@ -22,7 +46,7 @@ Microprofile is hosted on
 
 And once each frame you should call
 
-```
+```cxx
 MicroProfileFlip(nullptr);
 ```
 
@@ -46,7 +70,7 @@ Gpu timers are available for the following apis:
 
 MicroProfile has support for tracking various counters, that will then be shown in the live & capture views. 
 
-```
+```cxx
 	MICROPROFILE_COUNTER_ADD("memory/main", 1000);
 	MICROPROFILE_COUNTER_SET("fisk/geder/", 42);
 ```
@@ -61,14 +85,14 @@ The Timeline view in a capture is intended to mark longer, unique timers. It can
 
 There are two ways to use it. The first one uses unformatted static string literals:
 
-```
+```cxx
 	MICROPROFILE_TIMELINE_ENTER_STATIC(MP_DARKGOLDENROD, "one");
 	MICROPROFILE_TIMELINE_LEAVE_STATIC("one");
 
 ```
 
 The second option allows for arbitrary strings, but requires a token is stored, for the profiler to identify when leaving the marker:
-```
+```cxx
 	MICROPROFILE_TIMELINE_TOKEN(token);
 	MICROPROFILE_TIMELINE_ENTERF(token, MP_YELLOW, "custom %d %6.2f", 10, 42.0f);
 	MICROPROFILE_TIMELINE_LEAVE(token);
@@ -216,3 +240,10 @@ Microprofile supports the two major consoles - Search for 'microprofile' in the 
 
 # License
 Licensed using [UNLICENSE](LICENSE)
+
+<br>
+<br>
+
+
+[![ORG](https://img.shields.io/badge/org-nodef-green?logo=Org)](https://nodef.github.io)
+![](https://ga-beacon.deno.dev/G-RC63DPBH3P:SH3Eq-NoQ9mwgYeHWxu7cw/github.com/nodef/microprofile.cxx)
